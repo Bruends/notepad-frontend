@@ -8,6 +8,10 @@ export const getToken = async (userData) => {
     const { token } = res.data;
     return { token };
   } catch (err) {
+
+    if(err.message === "Network Error"){
+      throw new Error('Error on connecting to backend!');
+    }
     const  { error }  = JSON.parse(err.request.response);
     throw new Error(error);
   }

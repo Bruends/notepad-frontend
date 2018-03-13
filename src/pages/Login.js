@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+
 import LoginForm from '../components/LoginForm/';
 import { getToken, registerUser } from '../utils/authApi';
+import bg from '../assets/loginwallpaper.jpeg';
+
+
+const backgroundStyle = {
+  position: 'relative',
+  width: '100%',
+  minHeight: '100vh',
+  backgroundImage: `url(${bg})`,
+  backgroundSize: 'cover',
+  paddingTop: '50px'
+}
 
 class Login extends Component {
   constructor (){
@@ -34,7 +46,7 @@ class Login extends Component {
 
   render() {
     return (
-      <section>
+      <section style={backgroundStyle}>
         <LoginForm 
           error={this.state.error}
           handleLogin={this.handleLogin} 

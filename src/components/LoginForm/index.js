@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './loginForm.css';
+
 class LoginForm extends Component {
   constructor(props){
     super(props);
@@ -24,8 +26,7 @@ class LoginForm extends Component {
   
 
   async handleSubmit(e){
-    e.preventDefault();
-    console.log('hai');
+    e.preventDefault();    
 
     // if passwords doenst match on register
     if(this.state.isRegistering && this.state.password != this.state.passwordConfirm){
@@ -60,16 +61,19 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="email">Email</label>
+      <form className="loginForm" onSubmit={this.handleSubmit}>
+        <h1 className="loginForm_h1">Auth Form</h1>
+        <label className="loginForm_label" htmlFor="email">Email</label>
         <input
+          className="loginForm_input"
           type="email"
           value={this.state.email}
           onChange={(e) => this.setState({ email: e.target.value })}
         />
 
-        <label htmlFor="email">password</label>
+        <label className="loginForm_label" htmlFor="email">password</label>
         <input
+          className="loginForm_input"
           type="password"
           value={this.state.password}
           onChange={(e) => this.setState({ password: e.target.value })}
@@ -79,8 +83,9 @@ class LoginForm extends Component {
           // password confirm, only on register
           (this.state.isRegistering)
             ? <div>
-                <label htmlFor="email">Confirm password</label>
+                <label className="loginForm_label" htmlFor="email">Confirm password</label>
                 <input
+                  className="loginForm_input"
                   type="password"
                   value={this.state.passwordConfirm}
                   onChange={(e) => this.setState({ passwordConfirm: e.target.value })}
@@ -89,7 +94,7 @@ class LoginForm extends Component {
             : <div />
         }
 
-        <button>
+        <button className="loginForm_mainButton">
           {
             (this.state.isRegistering)
               ? 'Register'
@@ -97,21 +102,26 @@ class LoginForm extends Component {
           }
         </button>
 
-        <button type="button" onClick={this.toggleMode}>
-          {
-            (this.state.isRegistering)
-              ? 'Login'
-              : 'Register'
-          }
-        </button>
-
-        <span>
+        <span 
+          className={ this.state.error !== null
+            ? "loginForm_error"
+            : ''
+          }>
           {
             (this.state.error !== null)
             ? this.state.error
             : ''
           }
         </span>
+
+        <button className="loginForm_secundaryButton" type="button" onClick={this.toggleMode}>
+          {
+            (this.state.isRegistering)
+              ? 'Or Login'
+              : 'Or Register'
+          }
+        </button>
+
       </form>
     );
   }
