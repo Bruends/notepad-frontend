@@ -7,24 +7,30 @@ import LogoutIcon from 'react-icons/lib/md/power-settings-new';
 import './lateralMenu.css';
 
 class LateralMenu extends Component {
+  logout(e){
+    e.preventDefault();
+    sessionStorage.removeItem('token');
+    window.location.reload();
+  }
+
   render() {
     return (
       <nav className="lateralMenu_container">
         <ul className="lateralMenu">
           <li className="lateralMenu_item">
-            <Link to='/notepad/'>
+            <a href="">
               <NotesIcon />              
-            </Link>
+            </ a>
           </li>
           <li className="lateralMenu_item">
-            <Link to='/notepad/edit'>
+          <a href="">
               <EditIcon />
-            </Link>
+            </a>
           </li>
           <li className="lateralMenu_item">
-            <Link to='/'>
+            <a href="" onClick={this.logout}>
               <LogoutIcon />
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>

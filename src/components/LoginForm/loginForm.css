@@ -54,6 +54,7 @@
 }
 
 .loginForm_secundaryButton {
+  cursor: pointer;
   display: block;
   margin-left: auto;
   padding: 5px;
