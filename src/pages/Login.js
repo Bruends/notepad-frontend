@@ -27,8 +27,7 @@ class Login extends Component {
   async handleLogin(userData){   
      try {
       const res = await getToken(userData);    
-      this.props.setToken(res.token);
-      console.log(res.token);
+      this.props.setTokenAndLogin(res.token);      
      } catch (error){
       this.setState({ error: error.message })
      }
@@ -36,11 +35,10 @@ class Login extends Component {
 
   async handleRegister(userData){   
     try {
-     const res = await registerUser(userData);  
-     this.props.setToken(res.token);
-     console.log(res.token);
+      const res = await registerUser(userData);  
+      this.props.setTokenAndLogin(res.token);     
     } catch (error){
-       this.setState({ error: error.message })
+      this.setState({ error: error.message })
     }
   }
 

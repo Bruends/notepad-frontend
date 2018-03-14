@@ -22,14 +22,13 @@ class LoginForm extends Component {
     if(error !== null ){
       this.setState({ error });
     }
-  }
-  
+  }  
 
   async handleSubmit(e){
     e.preventDefault();    
 
     // if passwords doenst match on register
-    if(this.state.isRegistering && this.state.password != this.state.passwordConfirm){
+    if(this.state.isRegistering && this.state.password !== this.state.passwordConfirm){
       this.setState({ error: 'passwords dont match' })
       return;
     }   
