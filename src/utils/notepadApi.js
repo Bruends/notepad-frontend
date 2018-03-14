@@ -18,9 +18,10 @@ export default (token) => {
   return {
     async getAllNotes(){
       try {
-        const notes = await api.get('/');
+        const res = await api.get('/');
+        const {notes} = res.data;
         return notes;
-      } catch (err){        
+      } catch (err){
         return handleError(err);
       }
     },
