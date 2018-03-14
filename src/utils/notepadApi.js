@@ -2,11 +2,11 @@ import axios from 'axios';
 
 const handleError = (err) => {
   if(err.message === "Network Error"){
-    return ({message: 'Error on connecting to backend!', status: 500 });
+    return ('Error on connecting to backend!');
   }
 
   const { error } = JSON.parse(err.request.response)
-  return { message: error, status: err.request.status };
+  return error;
 }
 
 export default (token) => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NoteCard from '../../components/NoteCard/';
+import NoteCard from '../components/NoteCard/';
 
-import notepadApi from '../../utils/notepadApi';
+import notepadApi from '../utils/notepadApi';
 
 const style = {
   marginLeft: '90px'
@@ -29,7 +29,7 @@ class AllNotes extends Component {
             <NoteCard 
               key={note._id}
               title={note.title}
-              text={note.text} 
+              text={note.text}
            />
           ))
         }
