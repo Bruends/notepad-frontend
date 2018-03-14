@@ -47,8 +47,8 @@ class Login extends Component {
       <section style={backgroundStyle}>
         <LoginForm 
           error={this.state.error}
-          handleLogin={this.handleLogin} 
-          handleRegister={this.handleRegister} 
+          handleLogin={this.handleLogin}
+          handleRegister={this.handleRegister}
         />
       </section>
     );

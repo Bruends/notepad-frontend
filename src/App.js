@@ -40,7 +40,7 @@ class App extends Component {
           )} />
           
           <ProtectedRoute 
-            exact path='/notepad'
+            path='/notepad'
             isAuthenticated={this.isAuthenticated}
             component={(props) => ( 
               <Notepad {...props} />

@@ -1,0 +1,21 @@
+.lateralMenu_container{
+  position: absolute;
+  background-color: #222;
+  height: 100%;
+}
+
+.lateralMenu_item{
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.lateralMenu_item:hover{
+  background-color: #6FCF97;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.lateralMenu_item a {
+  color: #fff;
+  font-size: 1.85rem;
+}
