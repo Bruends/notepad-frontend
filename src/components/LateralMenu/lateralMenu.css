@@ -1,5 +1,5 @@
 .lateralMenu_container{
-  position: absolute;
+  position: fixed;
   background-color: #222;
   height: 100%;
 }

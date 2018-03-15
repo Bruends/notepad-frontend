@@ -25,5 +25,13 @@ export default (token) => {
         return handleError(err);
       }
     },
+    async saveNote(userData){
+      try {
+        await api.post('/', userData);
+        return true;
+      } catch (err){
+        return handleError(err);
+      }
+    },
   }
 };
