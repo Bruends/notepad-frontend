@@ -25,9 +25,27 @@ export default (token) => {
         return handleError(err);
       }
     },
-    async saveNote(userData){
+    async saveNote(noteData){
       try {
-        await api.post('/', userData);
+        await api.post('/', noteData);
+        return true;
+      } catch (err){
+        return handleError(err);
+      }
+    },
+
+    async editNote(noteData){
+      try {
+        await api.put('/', noteData);
+        return true;
+      } catch (err){
+        return handleError(err);
+      }
+    },
+
+    async deleteNote(noteData){
+      try {
+        await api.delete(`/${noteData.id}`);                  
         return true;
       } catch (err){
         return handleError(err);

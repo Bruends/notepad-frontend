@@ -4,7 +4,11 @@ import NoteCard from '../components/NoteCard/';
 import notepadApi from '../utils/notepadApi';
 
 const style = {
-  marginLeft: '90px'
+  marginLeft: '90px',
+  display: 'flex',
+  padding: '50px 20px',
+  flexWrap: 'wrap',
+  alignItens: 'flex-start'
 }
 
 class AllNotes extends Component {
@@ -27,9 +31,12 @@ class AllNotes extends Component {
         {
           this.state.notes.map(note => (
             <NoteCard 
+              id={note._id}
               key={note._id}
               title={note.title}
               text={note.text}
+              openEditModal={this.props.openEditModal}
+              openDeleteModal={this.props.openDeleteModal}
            />
           ))
         }

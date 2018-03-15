@@ -14,14 +14,11 @@ const customStyles = {
  
 class NotesModal extends React.Component {
   constructor(props) {
-    super();
- 
+    super(); 
     this.state = {
       isModalOpen: false,
       isEditing: false,  
-      id: '',    
-      title: '',
-      text: '',
+      id: '',          
     };
     
     this.closeModal = this.closeModal.bind(this);
@@ -31,19 +28,15 @@ class NotesModal extends React.Component {
   componentWillReceiveProps(nextProps){
     const {isModalOpen} = nextProps;
     this.setState({ 
-      isModalOpen,
-      title: nextProps.title,
-      text: nextProps.text,
+      isModalOpen,     
       id: nextProps.id
-    });    
+    });
   }
 
   handleSubmit(e){
     e.preventDefault();
     const noteData = {
-      id: this.state.id,
-      title: this.state.title,
-      text: this.state.text
+      id: this.state.id,      
     }
     this.props.handleSubmitToApi(noteData);
   }
@@ -60,20 +53,8 @@ class NotesModal extends React.Component {
         style={customStyles}
         contentLabel="Notes App"
       >
-
-        <form onSubmit={this.handleSubmit}>
-          <input  
-            type="text" 
-            name="title" 
-            value={this.state.title}
-            onChange={(e) => this.setState({ title: e.target.value })}
-            required 
-          />
-          <input 
-            type="textarea"
-            value={this.state.text}
-            onChange={(e) => this.setState({ text: e.target.value })}
-          />
+        <h3>Delete Note ?</h3>
+        <form onSubmit={this.handleSubmit}>          
           <button>Save</button>
           <button type="button" onClick={this.closeModal}>Cancel</button>
         </form>
