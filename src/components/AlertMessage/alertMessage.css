@@ -1,0 +1,7 @@
+.alertMessage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  padding: 20px 40px;
+}

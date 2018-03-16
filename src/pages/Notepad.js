@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import LateralMenu from '../components/LateralMenu/';
 import AllNotes from '../containers/Allnotes';
+import AlertMessage from '../components/AlertMessage';
 import Modal from '../components/Modals/Modal';
 import DeleteModal from '../components/Modals/DeleteModal';
 import notepadApi from '../utils/notepadApi';
@@ -12,14 +13,18 @@ class Notepad extends Component {
     super();
     this.state = {
       reloadNotes: false,
+      showMessage: false,
+      message: { type: '', text: '' },
       isRegisteModalOpen: false,
       isEditModalOpen: false,
-      isDeleteModalOpen: false,    
+      isDeleteModalOpen: false,   
       selectedId: '',
       selectedText: '',
       selectedTitle: '',
     }
-
+    
+    this.reloadNotes = this.reloadNotes.bind(this);
+    this.showMessage = this.showMessage.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
     this.openRegisterModal = this.openRegisterModal.bind(this);
     this.openEditModal = this.openEditModal.bind(this);
@@ -27,12 +32,19 @@ class Notepad extends Component {
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.closeAllModals = this.closeAllModals.bind(this);
-    this.reloadNotes = this.reloadNotes.bind(this);
   }
 
   // update notes after an api call
   reloadNotes(){
     this.setState({reloadNotes: true})
+  }
+
+  showMessage(message){
+    this.setState({showMessage: true, message})
+    // reset after show
+    setTimeout(() => {
+      this.setState({showMessage: false, message: ''})
+    }, 2000);
   }
 
   async handleRegister(noteData){
@@ -41,8 +53,10 @@ class Notepad extends Component {
       await api.saveNote(noteData);
       this.closeAllModals();
       this.reloadNotes();
+      this.showMessage({text: 'Saved Successfully!', type: 'success'});
     } catch (err){
       console.log(err);
+      this.showMessage({text: 'Error on Save!', type: 'error'});
     }
   }
 
@@ -52,8 +66,10 @@ class Notepad extends Component {
       await api.editNote(noteData);
       this.closeAllModals();
       this.reloadNotes();
+      this.showMessage({text: 'Edited Successfully!', type: 'success'});
     } catch (err){
       console.log(err);
+      this.showMessage({text: 'Error on Edit!', type: 'error'});
     }
   }
 
@@ -63,8 +79,9 @@ class Notepad extends Component {
       await api.deleteNote(id);
       this.closeAllModals();
       this.reloadNotes();
+      this.showMessage({text: 'Deleted Successfully!', type: 'success'});
     } catch (err){
-      console.log(err);
+      this.showMessage({text: 'Error on delete!', type: 'error'});
     }
     console.log(id);
   }
@@ -111,11 +128,19 @@ class Notepad extends Component {
           openDeleteModal={this.openDeleteModal} 
         />
 
+        <AlertMessage
+          isVisible={this.state.showMessage}
+          message={this.state.message.text}
+          type={this.state.message.type}
+        />
+
+        {/* register modal */}
         <Modal 
           isModalOpen={this.state.isRegisteModalOpen}
           handleSubmitToApi={this.handleRegister}
         />
 
+        {/* edit modal */}
         <Modal 
           isModalOpen={this.state.isEditModalOpen}
           handleSubmitToApi={this.handleEdit}

@@ -20,11 +20,11 @@ const handleDeleteClick = (props) => {
 }
 
 const NoteCard = (props) => (
-  <article className="noteCard" style={paperTexture}>    
+  <article className="noteCard" style={paperTexture}> 
     <h3 className="noteCard_title">{props.title}</h3>
     <p className="noteCard_text">
       {props.text}
-    </p>
+    </p>      
     <button 
       className="noteCard_button" 
       onClick={() => handleEditClick(props)}>
@@ -34,7 +34,7 @@ const NoteCard = (props) => (
       className="noteCard_button" 
       onClick={() => handleDeleteClick(props)}>
         <TrashIcon />
-    </button>    
+    </button>
   </article>
 );
 
