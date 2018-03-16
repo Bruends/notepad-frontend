@@ -25,6 +25,7 @@ class Notepad extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.closeAllModals = this.closeAllModals.bind(this);
   }
 
   async handleRegister(noteData){
@@ -56,10 +57,12 @@ class Notepad extends Component {
   }
 
   openRegisterModal(){
+    this.closeAllModals();
     this.setState({ isRegisteModalOpen: true });
   }
 
   openEditModal(noteData){
+    this.closeAllModals();
     this.setState({
       selectedId: noteData.id,
       selectedTitle: noteData.title,
@@ -69,10 +72,19 @@ class Notepad extends Component {
   }
 
   openDeleteModal(noteData){
+    this.closeAllModals();
     this.setState({
       selectedId: noteData.id,      
       isDeleteModalOpen: true
     })    
+  }
+
+  closeAllModals(){
+    this.setState({
+      isRegisteModalOpen: false,
+      isEditModalOpen: false,
+      isDeleteModalOpen: false, 
+    })
   }
 
   render() {

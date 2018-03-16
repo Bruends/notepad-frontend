@@ -1,0 +1,49 @@
+.ReactModal__Content {
+  max-width: 400px;  
+  margin: 0 auto;
+  max-height: 400px;
+  background-color: #333;
+  padding: 10px;
+}
+
+.modalForm_label {
+  display: block;
+  color: #333;
+  font-size: 1.25rem;  
+  margin: 25px 0 10px 0;
+}
+
+.modalForm_input{
+  background-color: #e6e6e6;
+  color: #333;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 90%;
+}
+
+.modalForm_textArea {
+  background-color: #e6e6e6;
+  padding: 10px;
+  resize: none;
+  border-radius: 5px;  
+  max-width: 90%;
+}
+
+.modalForm_button {
+  float: right;
+  border: 0;
+  padding: 10px 20px;
+  color: #fff;
+  margin: 60px 2px 0 2px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .ReactModal__Content {
+    width: 65% !important;
+    position: absolute !important;
+
+  }    
+}

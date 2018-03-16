@@ -1,17 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
- 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
- 
+import './modal.css'; 
+
 class NotesModal extends React.Component {
   constructor(props) {
     super();
@@ -23,6 +13,7 @@ class NotesModal extends React.Component {
       title: '',
       text: '',
     };
+
     
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,28 +45,42 @@ class NotesModal extends React.Component {
  
   render() {
     return (
-      <Modal
+      <Modal        
         isOpen={this.state.isModalOpen}
-        onRequestClose={this.closeModal}
-        style={customStyles}
+        onRequestClose={this.closeModal}       
         contentLabel="Notes App"
       >
 
-        <form onSubmit={this.handleSubmit}>
+        <form className="modalForm" onSubmit={this.handleSubmit}>
+          <label htmlFor="title" className="modalForm_label">Title: *</label>
           <input  
+            id="title"
+            className="modalForm_input"
             type="text" 
             name="title" 
             value={this.state.title}
             onChange={(e) => this.setState({ title: e.target.value })}
             required 
           />
-          <input 
+          <label htmlFor="note" className="modalForm_label">Note: </label>
+          <textarea rows="8" cols="50"
+            id="note" 
+            className="modalForm_textArea"
             type="textarea"
             value={this.state.text}
             onChange={(e) => this.setState({ text: e.target.value })}
           />
-          <button>Save</button>
-          <button type="button" onClick={this.closeModal}>Cancel</button>
+          <button 
+            className="modalForm_button" 
+            style={{backgroundColor: '#6FCF97'}}>
+              Save
+          </button>
+          <button 
+            className="modalForm_button"
+            style={{backgroundColor: '#333'}} type="button"
+            onClick={this.closeModal}>
+              Cancel
+          </button>
         </form>
       </Modal>
     );

@@ -55,8 +55,8 @@ class NotesModal extends React.Component {
       >
         <h3>Delete Note ?</h3>
         <form onSubmit={this.handleSubmit}>          
-          <button>Save</button>
-          <button type="button" onClick={this.closeModal}>Cancel</button>
+          <button style={{backgroundColor: '#EB5757'}} className="modalForm_button">Delete</button>
+          <button style={{backgroundColor: '#333'}} className="modalForm_button" type="button" onClick={this.closeModal}>Cancel</button>
         </form>
       </Modal>
     );

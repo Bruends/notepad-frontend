@@ -1,5 +1,5 @@
 body{
-  background-color: #e9e9e9;
+  background-color: #eeeeee;
 }
 
 .allNotes_container {
@@ -9,9 +9,9 @@ body{
   padding: 40px 20px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 400px) {
   .allNotes_container {
     padding: 20px 0;
-    margin-left: 80px;
+    margin-left: 52px;
   }
 }

@@ -1,5 +1,6 @@
 .lateralMenu_container{
   position: fixed;
+  z-index: 10;
   background-color: #222;
   height: 100%;
 }
@@ -22,4 +23,11 @@
 .lateralMenu_item a {
   color: #fff;
   font-size: 1.85rem;
+}
+
+/* responsive */
+@media screen and (max-width: 400px) {
+  .lateralMenu_item{
+    padding: 13px;    
+  }   
 }
