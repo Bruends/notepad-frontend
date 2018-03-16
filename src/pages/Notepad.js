@@ -5,7 +5,7 @@ import AllNotes from '../containers/Allnotes';
 import Modal from '../components/Modals/Modal';
 import DeleteModal from '../components/Modals/DeleteModal';
 import notepadApi from '../utils/notepadApi';
-
+import './notepad.css';
 
 class Notepad extends Component {
   constructor(){
@@ -79,14 +79,17 @@ class Notepad extends Component {
     return (
       <div>
         <LateralMenu openModal={this.openRegisterModal} />
+        
         <AllNotes 
           openEditModal={this.openEditModal} 
           openDeleteModal={this.openDeleteModal} 
         />
+
         <Modal 
           isModalOpen={this.state.isRegisteModalOpen}
           handleSubmitToApi={this.handleRegister}
         />
+
         <Modal 
           isModalOpen={this.state.isEditModalOpen}
           handleSubmitToApi={this.handleEdit}
@@ -95,6 +98,7 @@ class Notepad extends Component {
           text={this.state.selectedText}
           isEditing
         />
+
         <DeleteModal 
           isModalOpen={this.state.isDeleteModalOpen}
           handleSubmitToApi={this.handleDelete}
