@@ -11,6 +11,7 @@ class Notepad extends Component {
   constructor(){
     super();
     this.state = {
+      reloadNotes: false,
       isRegisteModalOpen: false,
       isEditModalOpen: false,
       isDeleteModalOpen: false,    
@@ -26,12 +27,20 @@ class Notepad extends Component {
     this.openDeleteModal = this.openDeleteModal.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.closeAllModals = this.closeAllModals.bind(this);
+    this.reloadNotes = this.reloadNotes.bind(this);
+  }
+
+  // update notes after an api call
+  reloadNotes(){
+    this.setState({reloadNotes: true})
   }
 
   async handleRegister(noteData){
     try{
       const api = notepadApi(sessionStorage.getItem('token'));
       await api.saveNote(noteData);
+      this.closeAllModals();
+      this.reloadNotes();
     } catch (err){
       console.log(err);
     }
@@ -41,6 +50,8 @@ class Notepad extends Component {
     try{
       const api = notepadApi(sessionStorage.getItem('token'));
       await api.editNote(noteData);
+      this.closeAllModals();
+      this.reloadNotes();
     } catch (err){
       console.log(err);
     }
@@ -50,6 +61,8 @@ class Notepad extends Component {
     try{
       const api = notepadApi(sessionStorage.getItem('token'));
       await api.deleteNote(id);
+      this.closeAllModals();
+      this.reloadNotes();
     } catch (err){
       console.log(err);
     }
@@ -93,6 +106,7 @@ class Notepad extends Component {
         <LateralMenu openModal={this.openRegisterModal} />
         
         <AllNotes 
+          reloadNotes={this.state.reloadNotes}
           openEditModal={this.openEditModal} 
           openDeleteModal={this.openDeleteModal} 
         />

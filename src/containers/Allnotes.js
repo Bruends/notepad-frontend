@@ -9,9 +9,19 @@ class AllNotes extends Component {
     this.state = {
       notes: []
     }
+
+    this.loadNotes = this.loadNotes.bind(this);
   }
 
-  async componentDidMount(){
+  componentDidMount(){
+    this.loadNotes();
+  }
+
+  componentWillReceiveProps(){
+    this.loadNotes();
+  }
+
+  async loadNotes(){
     const api = notepadApi(sessionStorage.getItem('token'));
     const notes = await api.getAllNotes();
     this.setState({ notes });

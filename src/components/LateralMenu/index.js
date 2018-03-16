@@ -27,19 +27,21 @@ class LateralMenu extends Component {
       <nav className="lateralMenu_container">
         <ul className="lateralMenu">
           <li className="lateralMenu_item">
-            <a href="" title="All Notes">
+            <span role="button" title="All Notes">
               <NotesIcon />              
-            </ a>
+            </span>
           </li>
           <li className="lateralMenu_item">
-          <a href="" title="add Note" onClick={this.openAddModal}>
+          <span role="button" href="" title="add Note"      
+            onClick={this.openAddModal}>
               <AddIcon />
-            </a>
+          </span>
           </li>
           <li className="lateralMenu_item">
-            <a href="" title="logout" onClick={this.logout}>
-              <LogoutIcon />
-            </a>
+            <span role="button" title="logout" 
+              onClick={this.logout}>
+                <LogoutIcon />
+            </span>
           </li>
         </ul>
       </nav>

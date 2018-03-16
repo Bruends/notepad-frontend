@@ -39,6 +39,7 @@ class NotesModal extends React.Component {
       id: this.state.id,      
     }
     this.props.handleSubmitToApi(noteData);
+    this.closeModal();
   }
  
   closeModal() {

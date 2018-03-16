@@ -1,6 +1,6 @@
 .lateralMenu_container{
   position: fixed;
-  z-index: 10;
+  z-index: 2;
   background-color: #222;
   height: 100%;
 }
@@ -20,7 +20,7 @@
   background-color: #6FCF97;
 }
 
-.lateralMenu_item a {
+.lateralMenu_item span {
   color: #fff;
   font-size: 1.85rem;
 }
