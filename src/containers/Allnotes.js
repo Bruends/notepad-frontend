@@ -2,19 +2,27 @@ import React, { Component } from 'react';
 import NoteCard from '../components/NoteCard/';
 
 import notepadApi from '../utils/notepadApi';
+import AlertMessage from '../components/AlertMessage/';
 
 class AllNotes extends Component {
   constructor(){
     super();
     this.state = {
-      notes: []
+      notes: [],
+      alert: {
+        isVisible: false,
+        message: '',
+        type: '',
+      }
     }
 
     this.loadNotes = this.loadNotes.bind(this);
+    this.showMessage = this.showMessage.bind(this);
   }
 
   componentDidMount(){
     this.loadNotes();
+    this.showMessage({message: 'Welcome !', type: 'info'});
   }
 
   componentWillReceiveProps(){
@@ -22,9 +30,26 @@ class AllNotes extends Component {
   }
 
   async loadNotes(){
-    const api = notepadApi(sessionStorage.getItem('token'));
-    const notes = await api.getAllNotes();
-    this.setState({ notes });
+    try {
+      const api = notepadApi(sessionStorage.getItem('token'));
+      const notes = await api.getAllNotes();
+      this.setState({ notes });     
+    } catch(err) {
+      this.showMessage({message: err.message, type: 'error'});
+    }
+  }
+
+  showMessage(alertConfig){
+    alertConfig.isVisible = true;
+    this.setState({ alert: alertConfig })
+    // reset after show
+    setTimeout(() => {
+      this.setState({ alert: {
+        isVisible: false,
+        message: '',
+        type: '',
+      }})
+    }, 2000);
   }
 
   render() {
@@ -42,6 +67,12 @@ class AllNotes extends Component {
            />
           ))
         }
+
+        <AlertMessage
+          isVisible={this.state.alert.isVisible}
+          message={this.state.alert.message}
+          type={this.state.alert.type} 
+        />
       </div>
     );
   }

@@ -56,7 +56,9 @@ class Notepad extends Component {
       this.showMessage({text: 'Saved Successfully!', type: 'success'});
     } catch (err){
       console.log(err);
-      this.showMessage({text: 'Error on Save!', type: 'error'});
+      this.showMessage({
+        text: 'Error on Save! ' + err.message, 
+        type: 'error'});
     }
   }
 

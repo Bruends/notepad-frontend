@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const handleError = (err) => {
   if(err.message === "Network Error"){
-    return ('Error on connecting to backend!');
+    return 'Error on connecting to backend!';
   }
 
-  const { error } = JSON.parse(err.request.response)
+  const { error } = JSON.parse(err.request.response)  
   return error;
 }
 
@@ -22,7 +22,7 @@ export default (token) => {
         const {notes} = res.data;
         return notes;
       } catch (err){
-        return handleError(err);
+        throw new Error(handleError(err));
       }
     },
     async saveNote(noteData){
@@ -30,7 +30,7 @@ export default (token) => {
         await api.post('/', noteData);
         return true;
       } catch (err){
-        return handleError(err);
+        throw new Error(handleError(err));
       }
     },
 
@@ -39,16 +39,16 @@ export default (token) => {
         await api.put('/', noteData);
         return true;
       } catch (err){
-        return handleError(err);
+        throw new Error(handleError(err));
       }
     },
 
     async deleteNote(noteData){
       try {
-        await api.delete(`/${noteData.id}`);                  
+        await api.delete(`/${noteData.id}`); 
         return true;
       } catch (err){
-        return handleError(err);
+        throw new Error(handleError(err));
       }
     },
   }

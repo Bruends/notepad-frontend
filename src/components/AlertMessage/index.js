@@ -27,10 +27,14 @@ class AlertMessage extends Component {
 
   alertStyle() {
     const { type } = this.props;
-    const color = (type === 'error')
-      ? '#EB5757'
-      : '#6FCF97'
-  
+    // default color
+    let color = '#2D9CDB';
+
+    //setting message color by type
+    if(type === 'success') color = '#6FCF97';
+    else if (type === 'error') color = '#EB5757';    
+    
+    // seting visibility
     const display = (this.state.isVisible)
       ? 'block'
       : 'none'
