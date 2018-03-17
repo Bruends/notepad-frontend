@@ -1,0 +1,17 @@
+.emptyMessage {
+  min-height: 70vh;
+  position: relative;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emptyMessage_center 
+{
+  max-width: 400px;
+  font-size: 2.5rem;
+  color: #555;
+  text-align: center;
+}

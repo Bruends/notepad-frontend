@@ -61,7 +61,7 @@ class LoginForm extends Component {
   render() {
     return (
       <form className="loginForm" onSubmit={this.handleSubmit}>
-        <h1 className="loginForm_h1">Notepad App</h1>
+        <h1 className="loginForm_h1">Notepad</h1>
         <label className="loginForm_label" htmlFor="email">Email</label>
         <input
           className="loginForm_input"

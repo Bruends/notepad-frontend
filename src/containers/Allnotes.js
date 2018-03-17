@@ -3,6 +3,7 @@ import NoteCard from '../components/NoteCard/';
 
 import notepadApi from '../utils/notepadApi';
 import AlertMessage from '../components/AlertMessage/';
+import EmptyMessage from '../components/EmptyMessage/';
 
 class AllNotes extends Component {
   constructor(){
@@ -56,7 +57,11 @@ class AllNotes extends Component {
     return (
       <div className="allNotes_container">
         {
-          this.state.notes.map(note => (
+          (this.state.notes.length === 0)
+          
+          ? <EmptyMessage />
+
+          : this.state.notes.map(note => (
             <NoteCard 
               id={note._id}
               key={note._id}
