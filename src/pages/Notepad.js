@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 import LateralMenu from '../components/LateralMenu/';
 import AllNotes from '../containers/Allnotes';
-import AlertMessage from '../components/AlertMessage';
-import Modal from '../components/Modals/Modal';
-import DeleteModal from '../components/Modals/DeleteModal';
-import notepadApi from '../utils/notepadApi';
 import AllModals from '../containers/AllModals';
 import './notepad.css';
 
@@ -14,8 +10,6 @@ class Notepad extends Component {
     super();
     this.state = {
       reloadNotes: false,
-      showMessage: false,
-      message: { type: '', text: '' },
       isRegisteModalOpen: false,
       isEditModalOpen: false,
       isDeleteModalOpen: false,   
@@ -25,7 +19,7 @@ class Notepad extends Component {
     }
     
     this.reloadNotes = this.reloadNotes.bind(this);
-    this.showMessage = this.showMessage.bind(this);    
+       
     this.openRegisterModal = this.openRegisterModal.bind(this);
     this.openEditModal = this.openEditModal.bind(this);   
     this.openDeleteModal = this.openDeleteModal.bind(this);    
@@ -35,15 +29,7 @@ class Notepad extends Component {
   // update notes after an api call
   reloadNotes(){
     this.setState({reloadNotes: true})
-  }
-
-  showMessage(message){
-    this.setState({showMessage: true, message})
-    // reset after show
-    setTimeout(() => {
-      this.setState({showMessage: false, message: ''})
-    }, 2000);
-  }
+  } 
 
   openRegisterModal(){
     this.closeAllModals();
