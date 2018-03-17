@@ -23,7 +23,7 @@ export const registerUser = async (userData) => {
     const { token } = res.data;
     return { token };
   } catch (err) {
-    const  { error }  = JSON.parse(err.request.response);
+    const  { error }  = JSON.parse(err.request.response);    
     throw new Error(error);
   }
 }

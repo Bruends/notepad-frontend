@@ -1,11 +1,7 @@
-body{
-  background-color: #eeeeee;
-}
-
 .allNotes_container {
-  display: flex;  
+  display: flex;
   flex-wrap: wrap;
-  margin-left: 90px; 
+  margin-left: 90px;
   padding: 40px 20px;
 }
 
@@ -14,4 +10,9 @@ body{
     padding: 20px 0;
     margin-left: 52px;
   }
+}
+
+/* Background texture */
+body {
+  background-color: #e6e6e6;
 }

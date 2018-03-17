@@ -26,19 +26,19 @@ class LateralMenu extends Component {
     return (
       <nav className="lateralMenu_container">
         <ul className="lateralMenu">
-          <li className="lateralMenu_item">
-            <span role="button" title="All Notes">
+          <li>
+            <span className="lateralMenu_logo">
               <NotesIcon />              
             </span>
           </li>
-          <li className="lateralMenu_item">
-          <span role="button" href="" title="add Note"      
+          <li >
+          <span className="lateralMenu_item" role="button" title="add Note"      
             onClick={this.openAddModal}>
               <AddIcon />
           </span>
           </li>
-          <li className="lateralMenu_item">
-            <span role="button" title="logout" 
+          <li >
+            <span className="lateralMenu_item" role="button" title="logout" 
               onClick={this.logout}>
                 <LogoutIcon />
             </span>

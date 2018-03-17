@@ -5,24 +5,24 @@
   height: 100%;
 }
 
-.lateralMenu_item{
+.lateralMenu_item,
+.lateralMenu_logo{
+  display: block;
   padding: 20px;
   margin-top: 15px;
+  color: #fff;
+  font-size: 1.85rem;
 }
 
-.lateralMenu_item:hover{
-  background-color: #6FCF97;
+.lateralMenu_item:hover {
+  background-color: #fff;
+  color: #6FCF97;
   cursor: pointer;
   transition: .3s;
 }
 
-.lateralMenu_item:first-child{
+.lateralMenu_logo  {
   background-color: #6FCF97;
-}
-
-.lateralMenu_item span {
-  color: #fff;
-  font-size: 1.85rem;
 }
 
 /* responsive */

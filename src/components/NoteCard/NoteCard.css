@@ -1,14 +1,16 @@
 .noteCard {   
-  position: relative;
+  position: relative;     
   flex: 1;
-  min-width: 170px;
-  max-width: 300px;
+  min-width: 280px; 
+  max-width: 400px; 
   display: block;
   color: #333;
   background-color: #fff;
   padding: 30px;
+  padding-bottom: 100px;  
   margin: 10px;
   border-radius: 40px 0;
+  border: 1px solid #e6e6e6;  
 }
 
 .noteCard_title {
@@ -18,25 +20,29 @@
   font-size: 1.6rem;
 }
 
-.noteCard_text {
-  position: relative;
+.noteCard_text {  
   font-size: 1.2rem;
-  line-height: 1.4rem;
-  padding: 20px 0;
+  line-height: 1.5rem;
+  padding: 20px 5px;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-.noteCard_button {
-  position: relative;
-  margin-top: auto;
-  display: block;
-  float: right;
+.noteCard_buttons_container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px; 
+}
+
+.noteCard_button {  
+  display: inline-block;  
   background-color: #333;
   color: #fff;
   border: 0;
   padding: 11px;
   text-align: right;  
   border-radius: 5px;
-  margin: 2px;
+  margin: 15px 2px;
 }
 
 .noteCard_button:hover {
@@ -44,4 +50,10 @@
   -webkit-transition: .3s;
   transition: .3s;
   background-color: #6FCF97;
+}
+
+@media screen and (max-width: 500px) {
+  .noteCard {
+    min-width: 100px;
+  }
 }

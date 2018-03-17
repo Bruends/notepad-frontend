@@ -2,7 +2,6 @@ import React from 'react';
 import './NoteCard.css';
 import PencilIcon from 'react-icons/lib/fa/pencil';
 import TrashIcon from 'react-icons/lib/fa/trash';
-import paperTexture from '../../utils/paperTexture';
 
 const handleEditClick = (props) => {
   const note = {
@@ -20,21 +19,23 @@ const handleDeleteClick = (props) => {
 }
 
 const NoteCard = (props) => (
-  <article className="noteCard" style={paperTexture}> 
+  <article className="noteCard"> 
     <h3 className="noteCard_title">{props.title}</h3>
     <p className="noteCard_text">
       {props.text}
     </p>      
-    <button 
-      className="noteCard_button" 
-      onClick={() => handleEditClick(props)}>
-        <PencilIcon />
-    </button>
-    <button 
-      className="noteCard_button" 
-      onClick={() => handleDeleteClick(props)}>
-        <TrashIcon />
-    </button>
+    <div className="noteCard_buttons_container">
+      <button 
+        className="noteCard_button" 
+        onClick={() => handleEditClick(props)}>
+          <PencilIcon />
+      </button>
+      <button 
+        className="noteCard_button" 
+        onClick={() => handleDeleteClick(props)}>
+          <TrashIcon />
+      </button>
+    </div>
   </article>
 );
 
