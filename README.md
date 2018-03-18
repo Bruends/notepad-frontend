@@ -4,7 +4,7 @@
 ##### only works with notepad backend installed and running :warning: 
 [Install notepad-backend](https://github.com/BrunoMendes41/notepad-backend)
 
-##### installing and running 
+#### installing and running: 
 with the backend running
 
 - install the dependencies with the command `yarn` or `npm install`
