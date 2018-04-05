@@ -4,8 +4,8 @@
   display: block;
   background-color: #333;
   max-width: 300px;  
-  padding: 50px 30px;  
-  border-radius: 20px;
+  padding: 50px 30px;
+  border-radius: 4px;
 }
 
 .loginForm_h1{

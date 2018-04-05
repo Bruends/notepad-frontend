@@ -9,6 +9,7 @@ const backgroundStyle = {
   position: 'relative',
   width: '100%',
   minHeight: '100vh',
+  backgroundColor: '#191C1E',
   backgroundImage: `url(${bg})`,
   backgroundSize: 'cover',
   paddingTop: '50px'

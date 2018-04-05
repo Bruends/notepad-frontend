@@ -1,8 +1,7 @@
 .noteCard {   
   position: relative;     
   flex: 1;
-  min-width: 280px; 
-  max-width: 400px; 
+  min-width: 280px;
   display: block;
   color: #333;
   background-color: #fff;
