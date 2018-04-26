@@ -62,7 +62,7 @@ class LoginForm extends Component {
     return (
       <form className="loginForm" onSubmit={this.handleSubmit}>
         <h1 className="loginForm_h1">Notepad</h1>
-        <label className="loginForm_label" htmlFor="email">Email</label>
+        <label className="loginForm_label" htmlFor="email">Email:</label>
         <input
           className="loginForm_input"
           type="email"
@@ -70,7 +70,7 @@ class LoginForm extends Component {
           onChange={(e) => this.setState({ email: e.target.value })}
         />
 
-        <label className="loginForm_label" htmlFor="email">password</label>
+        <label className="loginForm_label" htmlFor="email">password:</label>
         <input
           className="loginForm_input"
           type="password"
@@ -82,7 +82,7 @@ class LoginForm extends Component {
           // password confirm, only on register
           (this.state.isRegistering)
             ? <div>
-                <label className="loginForm_label" htmlFor="email">Confirm password</label>
+                <label className="loginForm_label" htmlFor="email">Confirm password:</label>
                 <input
                   className="loginForm_input"
                   type="password"
@@ -92,14 +92,6 @@ class LoginForm extends Component {
               </div>
             : <div />
         }
-
-        <button className="loginForm_mainButton">
-          {
-            (this.state.isRegistering)
-              ? 'Register'
-              : 'Login'
-          }
-        </button>
 
         <span 
           className={ this.state.error !== null
@@ -112,6 +104,16 @@ class LoginForm extends Component {
             : ''
           }
         </span>
+
+        <button className="loginForm_mainButton">
+          {
+            (this.state.isRegistering)
+              ? 'Register'
+              : 'Login'
+          }
+        </button>
+
+        
 
         <button className="loginForm_secundaryButton" type="button" onClick={this.toggleMode}>
           {

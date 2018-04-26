@@ -20,6 +20,7 @@ export default (token) => {
       try {
         const res = await api.get('/');
         const {notes} = res.data;
+        notes.reverse();
         return notes;
       } catch (err){
         throw new Error(handleError(err));

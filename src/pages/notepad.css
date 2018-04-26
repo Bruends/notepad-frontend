@@ -10,10 +10,10 @@
 @media screen and (max-width: 400px) {
   .allNotes_container {
     padding: 20px 0;
-    margin-left: 52px;
+    margin-left: 70px;
   }
 }
 
 body {
-  background-color: #dadada;
+  background-color: #5F5F60;
 }

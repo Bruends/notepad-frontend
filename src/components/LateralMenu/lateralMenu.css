@@ -1,7 +1,7 @@
 .lateralMenu_container{
   position: fixed;
   z-index: 2;
-  background-color: #191C1E;
+  background-color: #212225;
   height: 100%;
 }
 
@@ -10,20 +10,20 @@
   display: block;
   padding: 20px;
   margin-top: 15px;
-  color: #fff;
+  color: #f2f2f2;
   font-size: 1.85rem;
 }
 
 .lateralMenu_logo  {    
   margin-bottom: 30px;
-  border-top: 2px solid #6FCF97;
-  border-bottom: 2px solid #6FCF97;
+  border-top: 8px solid #02B3D0 ;
+  border-bottom: 8px solid #02B3D0;
 }
 
 
 
 .lateralMenu_item:hover {
-  background-color: #6FCF97;  
+  background-color: #02B3D0;  
   cursor: pointer;
   transition: .3s;
 }

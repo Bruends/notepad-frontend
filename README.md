@@ -12,8 +12,6 @@ with the backend running
 - the app will listen in localhost:3000
 
 ###### Demo:
-login:
-![Login Demo](gifsDemo/noteLoginDemo.gif)
-app:
+app demo:
 ![Login Demo](gifsDemo/notepadDemo.gif)
 
