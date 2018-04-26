@@ -13,5 +13,5 @@ with the backend running
 
 ###### Demo:
 app demo:
-![Login Demo](gifsDemo/notepadDemo.gif)
+![Login Demo](gifsDemo/demo.gif)
 
