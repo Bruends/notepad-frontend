@@ -32,7 +32,7 @@ class NotesModal extends React.Component {
   handleSubmit(e){
     e.preventDefault();
     const noteData = {
-      id: this.state.id,
+      _id: this.state.id,
       title: this.state.title,
       text: this.state.text
     }
